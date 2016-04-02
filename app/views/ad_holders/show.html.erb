@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @ad_holder.type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ad_holder.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @ad_holder.price %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @ad_holder.available %>
+</p>
+
+<%= link_to 'Edit', edit_ad_holder_path(@ad_holder) %> |
+<%= link_to 'Back', ad_holders_path %>
