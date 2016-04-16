@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  get 'user/index', to: "users#index"
+
+  get 'user/prodile', to: "users#profile"
+
+  devise_for :users, :controllers => 
+  { :omniauth_callbacks => "users/omniauth_callbacks",
+    :registrations => "users/registrations",
+    :sessions => "users/sessions" }
   resources :ad_holders
-  root "application#index"
+  root "application#landing"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
