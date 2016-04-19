@@ -6,6 +6,8 @@ Devise.setup do |config|
   config.omniauth :facebook, ENV["FB_ID"]||"796041343850517", 
     ENV["FB_SECRET"]|| "78b09496be104f5e8a81eb144dca32c0",
     callback_url: "CALLBACK_URL"
+
+  config.secret_key = 'b1a1d4b0c47f9eb1031f35c056a0b3a2034a61f5b1548b129a06db11499b3787c7f77343bcc4e0c5a2906c05a576de2e8644255d5a97cd16389a631917776161'
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
