@@ -11,13 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421150030) do
+ActiveRecord::Schema.define(version: 20160426085618) do
 
   create_table "ad_holders", force: true do |t|
-    t.string   "type"
+    t.string   "holder_type"
     t.string   "description"
     t.float    "price"
     t.boolean  "available"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.string   "file"
+    t.integer  "holder_id"
+    t.integer  "width"
+    t.integer  "height"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

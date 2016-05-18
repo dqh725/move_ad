@@ -15,6 +15,9 @@ class AdHoldersController < ApplicationController
   # GET /ad_holders/new
   def new
     @ad_holder = AdHolder.new
+    3.times do
+      @ad_holder.images.build
+    end
   end
 
   # GET /ad_holders/1/edit
@@ -41,6 +44,7 @@ class AdHoldersController < ApplicationController
   # PATCH/PUT /ad_holders/1.json
   def update
     respond_to do |format|
+      puts ad_holder_params
       if @ad_holder.update(ad_holder_params)
         format.html { redirect_to @ad_holder, notice: 'Ad holder was successfully updated.' }
         format.json { render :show, status: :ok, location: @ad_holder }
@@ -69,6 +73,6 @@ class AdHoldersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_holder_params
-      params.require(:ad_holder).permit(:type, :description, :price, :available)
+      params.require(:ad_holder).permit(:holder_type, :description, :price, :available, :images_attributes=>["file"])
     end
 end

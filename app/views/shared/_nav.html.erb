@@ -21,7 +21,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Register a car</a></li>
+        <li><%= link_to "Register a car", new_ad_holder_path%></li>
         <li><a href="#">My Cars</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=current_user.name%><span class="caret"></span></a>

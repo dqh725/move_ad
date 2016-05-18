@@ -1,5 +1,14 @@
 source 'https://rubygems.org'
 
+# image upload and process
+gem 'carrierwave'
+# image processing
+gem 'mini_magick'
+# google geocoder for location decoder and search radius.
+gem 'geocoder'
+# for aws puma application
+gem "puma"
+# for user authentication
 gem 'devise'
 gem 'haml'
 gem 'bootstrap-sass', '~> 3.3.6'
