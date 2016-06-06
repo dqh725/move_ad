@@ -1,4 +1,7 @@
 
+<%= select_tag "make", options_for_select(@makes), id: 'makes_select'%>
+
+
 <%= form_for(@ad_holder) do |f| %>
   <% if @ad_holder.errors.any? %>
     <div id="error_explanation">
@@ -11,6 +14,10 @@
       </ul>
     </div>
   <% end %>
+
+  <%= select_tag :car_id, options_for_select(@vehicles.collect { |vehicle|
+    [vehicle.year.to_s + vehicle.model, vehicle.id] }, 0), { id: 'models_select' } %>
+
   <%=f.fields_for :images do |builder|%>
     <div class="form-group">
       <%= builder.label :file %><br>
@@ -24,8 +31,13 @@
   </div>
   <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_field :description,class: "form-control"%>
+    <%= f.text_field :description, class: "form-control"%>
   </div>
+
+  <div class="form-group">
+    <%= f.text_field :address, id: "location", class: "form-control"%>
+  </div>
+
   <div class="form-group">
     <%= f.label :price %><br>
     <%= f.number_field :price, class: "form-control" %>
@@ -37,5 +49,7 @@
   <div class="form-group">
     <%= f.submit class: "btn btn-success"%>
   </div>
+
+
 <% end %>
 

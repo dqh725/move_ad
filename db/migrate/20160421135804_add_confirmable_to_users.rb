@@ -7,6 +7,7 @@ class AddConfirmableToUsers < ActiveRecord::Migration
 
     # add_column :users, :unconfirmed_email, :string # Only if using reconfirmable
     add_index :users, :confirmation_token, unique: true
-    execute("UPDATE users SET confirmed_at = datetime()")
+    
+    execute("UPDATE users SET confirmed_at = CURRENT_TIMESTAMP")
   end
 end

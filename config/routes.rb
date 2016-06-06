@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'user/index', to: "users#index"
 
   get 'user/prodile', to: "users#profile"
+  get 'ad_holders/update_makes', to: 'ad_holders#update_makes', as: 'update_makes'
 
   devise_for :users, :controllers => 
   { :omniauth_callbacks => "users/omniauth_callbacks",
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
     :sessions => "users/sessions" }
   resources :ad_holders
   root "application#landing"
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

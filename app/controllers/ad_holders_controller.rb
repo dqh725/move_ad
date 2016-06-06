@@ -14,11 +14,23 @@ class AdHoldersController < ApplicationController
 
   # GET /ad_holders/new
   def new
+    @makes = VehicleModelYear.uniq.pluck(:make).sort!
+    @vehicles = []
     @ad_holder = AdHolder.new
     3.times do
       @ad_holder.images.build
     end
   end
+
+  # update make 
+  def update_makes
+    @vehicles =VehicleModelYear.where("make= ?", params[:make]).order(:model)
+    respond_to do |format|
+      format.js
+    end
+  end
+
+
 
   # GET /ad_holders/1/edit
   def edit
